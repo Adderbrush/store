@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block header %}
+<h1>Search:</h1>
+{% endblock %} {% block content %} {% for x in data %}
+<div class="row searchsegment">
+  <div class="col-sm">
+    <img class="searchicon" src="/static/assets/images/{{ x[1] }}/1.png" />
+  </div>
+  <div class="col-sm"><a href="products/{{ x[1]}}">{{ x[0] }}</a></div>
+</div>
+{% endfor %} {% endblock %}

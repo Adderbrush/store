@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block header %}
+<h1>Your basket</h1>
+{% endblock %}
+{% block content %}
+<main class="checkout-page">
+  {% if data %}
+  {% set totals = namespace(subtotal=0) %}
+  <div class="checkout-layout">
+    <section class="checkout-items" aria-labelledby="basket-items-heading">
+      <h2 id="basket-items-heading">Order summary <span>{{ data|length }} item{% if data|length != 1 %}s{% endif %}</span></h2>
+      {% for x in data %}
+      {% set line_total = x[4]|float * x[3]|int %}
+      {% set totals.subtotal = totals.subtotal + line_total %}
+      <article class="checkout-item">
+        <a class="checkout-item-image" href="/products/{{ x[0] }}_{{ x[1] }}">
+          <img
+            src="/static/assets/images/{{ x[0] }}_{{ x[1] }}/1.png"
+            alt="{{ x[1] }} {{ x[0] }}"
+          />
+        </a>
+        <div class="checkout-item-details">
+          <h3>{{ x[1] }} {{ x[0] }}</h3>
+          <p>Size: {{ x[2] }}</p>
+          <p>Quantity: {{ x[3] }}</p>
+        </div>
+        <p class="checkout-item-price">£{{ "%.2f"|format(line_total) }}</p>
+      </article>
+      {% endfor %}
+      <a class="checkout-continue" href="/products">Continue shopping</a>
+    </section>
+
+    <aside class="checkout-card" aria-labelledby="checkout-summary-heading">
+      <h2 id="checkout-summary-heading">Order total</h2>
+      <div class="checkout-total-row">
+        <span>Subtotal</span>
+        <span>£{{ "%.2f"|format(totals.subtotal) }}</span>
+      </div>
+      <div class="checkout-total-row checkout-shipping">
+        <span>Shipping</span>
+        <span>Calculated at checkout</span>
+      </div>
+      <div class="checkout-total-row checkout-grand-total">
+        <span>Total</span>
+        <span>£{{ "%.2f"|format(totals.subtotal) }}</span>
+      </div>
+      <form action="/create-checkout-session" method="POST">
+        <button type="submit" id="checkout-button">Continue to secure checkout</button>
+      </form>
+      <p class="checkout-secure-note">Secure payment powered by Stripe</p>
+    </aside>
+  </div>
+  {% else %}
+  <section class="checkout-empty">
+    <h2>Your basket is empty</h2>
+    <p>Explore the collection and find something you love.</p>
+    <a href="/products">Browse products</a>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}

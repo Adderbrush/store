@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block header %}
+<h1>All Products</h1>
+{% endblock %}
+{% block content %}
+<main class="product-catalog">
+  <div class="catalog-grid">
+    <section class="catalog-category">
+      <h2>T-Shirts</h2>
+      <div class="catalog-items">
+        {% for tshirt in tshirts %}
+        <a class="catalog-item" href="/products/{{ tshirt[2] }}">
+          <img
+            src="/static/assets/images/{{ tshirt[2] }}/1.png"
+            alt="{{ tshirt[0] }}"
+          />
+          <span>{{ tshirt[0] }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="catalog-category">
+      <h2>Hoodies</h2>
+      <div class="catalog-items">
+        {% for hoodie in hoodies %}
+        <a class="catalog-item" href="/products/{{ hoodie[2] }}">
+          <img
+            src="/static/assets/images/{{ hoodie[2] }}/1.png"
+            alt="{{ hoodie[0] }}"
+          />
+          <span>{{ hoodie[0] }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="catalog-category">
+      <h2>Coming Soon</h2>
+      <div class="catalog-items">
+        {% for tshirt in tshirts %}
+        <div class="catalog-item catalog-placeholder">
+          <img
+            src="/static/assets/images/{{ tshirt[2] }}/1.png"
+            alt="{{ tshirt[0] }}"
+          />
+          <span>{{ tshirt[0] }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
