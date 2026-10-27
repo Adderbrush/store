@@ -126,16 +126,19 @@ This project demonstrates:
 
 ### Products List Page
 
-<img width="191" height="822" alt="image" src="https://github.com/user-attachments/assets/40616288-c3ef-485f-8a3d-06c0af56d844" />
+<img width="1782" height="782" alt="image" src="https://github.com/user-attachments/assets/9f5f6f00-fdab-42b2-8f61-f91dac3317f0" />
+
 
 ### Product Page
 
-<img width="1846" height="866" alt="image" src="https://github.com/user-attachments/assets/fe1f9c35-7a4e-4b8a-a185-f90e02d375c2" />
+<img width="1758" height="910" alt="image" src="https://github.com/user-attachments/assets/3333377b-625b-41e7-95dd-beba02c368bc" />
+
 
 
 ### Basket and Checkout
 
 <img width="1428" height="889" alt="image" src="https://github.com/user-attachments/assets/9ae1075a-dba7-4963-a7c5-7f8ec948e10a" />
+<img width="1708" height="842" alt="image" src="https://github.com/user-attachments/assets/915341ee-c943-4f56-9009-0e2b1329b039" />
 
 
 ---
